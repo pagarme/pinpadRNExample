@@ -1,0 +1,39 @@
+{
+  "name": "pinpadRNExample",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start --reset-cache",
+    "test": "jest",
+    "lint": "eslint .",
+    "postinstall": "jetifier -r && patch-package"
+  },
+  "dependencies": {
+    "jetifier": "^1.6.5",
+    "patch-package": "^6.2.1",
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "react-native-gesture-handler": "^1.6.0",
+    "react-native-mpos-native": "github:pagarme/react-native-mpos-native#refactor-react-native-project",
+    "react-native-reanimated": "^1.7.0",
+    "react-native-screens": "^2.2.0",
+    "react-navigation": "^4.2.2",
+    "react-navigation-hooks": "^1.1.0",
+    "react-navigation-stack": "1.10.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^0.0.7",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react-test-renderer": "16.9.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
