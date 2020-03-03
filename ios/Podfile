@@ -50,13 +50,3 @@ target 'pinpadRNExample' do
 
   use_native_modules!
 end
-
-target 'pinpadRNExample-tvOS' do
-  # Pods for pinpadRNExample-tvOS
-
-  target 'pinpadRNExample-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end

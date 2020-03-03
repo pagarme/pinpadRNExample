@@ -12,13 +12,13 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		3897D8597282257829A52521 /* libPods-pinpadRNExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 762E164FD1736F8C380302A4 /* libPods-pinpadRNExampleTests.a */; };
 		64BC7326240D7738005EEAD3 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		64BC732D240D77B1005EEAD3 /* MposSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64BC732C240D77B1005EEAD3 /* MposSDK.framework */; };
 		64BC732E240D77B1005EEAD3 /* MposSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 64BC732C240D77B1005EEAD3 /* MposSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64BC7331240D77C2005EEAD3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64BC7330240D77C2005EEAD3 /* Result.framework */; };
 		64BC7332240D77C2005EEAD3 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 64BC7330240D77C2005EEAD3 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EB20171849EC8D1BF11D7D98 /* libPods-pinpadRNExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9948EEDFDACAC21E15B33A /* libPods-pinpadRNExample.a */; };
+		765959CB47709772E5804B2D /* libPods-pinpadRNExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C64157FA87784BF056FE1002 /* libPods-pinpadRNExample.a */; };
+		E093BF9F9EF9CDCFA3EE5A1B /* libPods-pinpadRNExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25EB63E070AA71901E5ACB84 /* libPods-pinpadRNExampleTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +51,6 @@
 		00E356EE1AD99517003FC87E /* pinpadRNExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pinpadRNExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* pinpadRNExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pinpadRNExampleTests.m; sourceTree = "<group>"; };
-		09697264C2784ADF7F3A8211 /* Pods-pinpadRNExample-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExample-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-pinpadRNExample-tvOSTests/Pods-pinpadRNExample-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		11BBF79CB4F99D50F2F81A3F /* Pods-pinpadRNExample-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExample-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-pinpadRNExample-tvOSTests/Pods-pinpadRNExample-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* pinpadRNExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinpadRNExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = pinpadRNExample/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = pinpadRNExample/AppDelegate.m; sourceTree = "<group>"; };
@@ -60,20 +58,16 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = pinpadRNExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = pinpadRNExample/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = pinpadRNExample/main.m; sourceTree = "<group>"; };
-		16945074937BCD7881EE3790 /* Pods-pinpadRNExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExampleTests.release.xcconfig"; path = "Target Support Files/Pods-pinpadRNExampleTests/Pods-pinpadRNExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		16A20C6329A016085171E586 /* Pods-pinpadRNExample-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExample-tvOS.release.xcconfig"; path = "Target Support Files/Pods-pinpadRNExample-tvOS/Pods-pinpadRNExample-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		331E92651067E5A2C6A9F033 /* Pods-pinpadRNExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExample.release.xcconfig"; path = "Target Support Files/Pods-pinpadRNExample/Pods-pinpadRNExample.release.xcconfig"; sourceTree = "<group>"; };
-		548E7A4A99D872746289FCB7 /* libPods-pinpadRNExample-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pinpadRNExample-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A651A5237D4B2F58D6B19E7 /* libPods-pinpadRNExample-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pinpadRNExample-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25EB63E070AA71901E5ACB84 /* libPods-pinpadRNExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pinpadRNExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		597BDB0462623DE79A51F520 /* Pods-pinpadRNExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-pinpadRNExampleTests/Pods-pinpadRNExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		64BC732C240D77B1005EEAD3 /* MposSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MposSDK.framework; path = "../node_modules/react-native-mpos-native/ios/libs/MposSDK.framework"; sourceTree = "<group>"; };
 		64BC7330240D77C2005EEAD3 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../node_modules/react-native-mpos-native/ios/libs/Result.framework"; sourceTree = "<group>"; };
-		762E164FD1736F8C380302A4 /* libPods-pinpadRNExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pinpadRNExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C9EE8A4948D638E501EA50F /* Pods-pinpadRNExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-pinpadRNExampleTests/Pods-pinpadRNExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A5619484D8FF60F54503C69F /* Pods-pinpadRNExample-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExample-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-pinpadRNExample-tvOS/Pods-pinpadRNExample-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		B4734A690621F55174571893 /* Pods-pinpadRNExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExample.debug.xcconfig"; path = "Target Support Files/Pods-pinpadRNExample/Pods-pinpadRNExample.debug.xcconfig"; sourceTree = "<group>"; };
-		CF9948EEDFDACAC21E15B33A /* libPods-pinpadRNExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pinpadRNExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2FEB990AA246CE2F77A10B3 /* Pods-pinpadRNExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExample.debug.xcconfig"; path = "Target Support Files/Pods-pinpadRNExample/Pods-pinpadRNExample.debug.xcconfig"; sourceTree = "<group>"; };
+		C64157FA87784BF056FE1002 /* libPods-pinpadRNExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pinpadRNExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D423346C6782DD18099D17FF /* Pods-pinpadRNExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExampleTests.release.xcconfig"; path = "Target Support Files/Pods-pinpadRNExampleTests/Pods-pinpadRNExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F6FF7B52EB32C990A1DF1915 /* Pods-pinpadRNExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinpadRNExample.release.xcconfig"; path = "Target Support Files/Pods-pinpadRNExample/Pods-pinpadRNExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3897D8597282257829A52521 /* libPods-pinpadRNExampleTests.a in Frameworks */,
+				E093BF9F9EF9CDCFA3EE5A1B /* libPods-pinpadRNExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,9 +84,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				64BC7326240D7738005EEAD3 /* JavaScriptCore.framework in Frameworks */,
-				EB20171849EC8D1BF11D7D98 /* libPods-pinpadRNExample.a in Frameworks */,
 				64BC732D240D77B1005EEAD3 /* MposSDK.framework in Frameworks */,
 				64BC7331240D77C2005EEAD3 /* Result.framework in Frameworks */,
+				765959CB47709772E5804B2D /* libPods-pinpadRNExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,10 +131,8 @@
 				64BC732C240D77B1005EEAD3 /* MposSDK.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				CF9948EEDFDACAC21E15B33A /* libPods-pinpadRNExample.a */,
-				548E7A4A99D872746289FCB7 /* libPods-pinpadRNExample-tvOS.a */,
-				5A651A5237D4B2F58D6B19E7 /* libPods-pinpadRNExample-tvOSTests.a */,
-				762E164FD1736F8C380302A4 /* libPods-pinpadRNExampleTests.a */,
+				C64157FA87784BF056FE1002 /* libPods-pinpadRNExample.a */,
+				25EB63E070AA71901E5ACB84 /* libPods-pinpadRNExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -179,14 +171,10 @@
 		AEF2176230B70C51A089FDE2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B4734A690621F55174571893 /* Pods-pinpadRNExample.debug.xcconfig */,
-				331E92651067E5A2C6A9F033 /* Pods-pinpadRNExample.release.xcconfig */,
-				A5619484D8FF60F54503C69F /* Pods-pinpadRNExample-tvOS.debug.xcconfig */,
-				16A20C6329A016085171E586 /* Pods-pinpadRNExample-tvOS.release.xcconfig */,
-				11BBF79CB4F99D50F2F81A3F /* Pods-pinpadRNExample-tvOSTests.debug.xcconfig */,
-				09697264C2784ADF7F3A8211 /* Pods-pinpadRNExample-tvOSTests.release.xcconfig */,
-				7C9EE8A4948D638E501EA50F /* Pods-pinpadRNExampleTests.debug.xcconfig */,
-				16945074937BCD7881EE3790 /* Pods-pinpadRNExampleTests.release.xcconfig */,
+				B2FEB990AA246CE2F77A10B3 /* Pods-pinpadRNExample.debug.xcconfig */,
+				F6FF7B52EB32C990A1DF1915 /* Pods-pinpadRNExample.release.xcconfig */,
+				597BDB0462623DE79A51F520 /* Pods-pinpadRNExampleTests.debug.xcconfig */,
+				D423346C6782DD18099D17FF /* Pods-pinpadRNExampleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -198,7 +186,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "pinpadRNExampleTests" */;
 			buildPhases = (
-				868FAD08042764C6A91D9055 /* [CP] Check Pods Manifest.lock */,
+				27BBCCBFF62A43C9BDBFDDEA /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -217,7 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "pinpadRNExample" */;
 			buildPhases = (
-				F9ACDD555CC94147ACD85ABF /* [CP] Check Pods Manifest.lock */,
+				FD27FBBC5ADFFCB3967A936F /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -307,7 +295,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		868FAD08042764C6A91D9055 /* [CP] Check Pods Manifest.lock */ = {
+		27BBCCBFF62A43C9BDBFDDEA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -323,28 +311,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-pinpadRNExampleTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F9ACDD555CC94147ACD85ABF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-pinpadRNExample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -368,6 +334,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD27FBBC5ADFFCB3967A936F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pinpadRNExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -415,7 +403,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C9EE8A4948D638E501EA50F /* Pods-pinpadRNExampleTests.debug.xcconfig */;
+			baseConfigurationReference = 597BDB0462623DE79A51F520 /* Pods-pinpadRNExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 8SY24KQQ46;
@@ -439,7 +427,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16945074937BCD7881EE3790 /* Pods-pinpadRNExampleTests.release.xcconfig */;
+			baseConfigurationReference = D423346C6782DD18099D17FF /* Pods-pinpadRNExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -460,7 +448,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4734A690621F55174571893 /* Pods-pinpadRNExample.debug.xcconfig */;
+			baseConfigurationReference = B2FEB990AA246CE2F77A10B3 /* Pods-pinpadRNExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -484,7 +472,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 331E92651067E5A2C6A9F033 /* Pods-pinpadRNExample.release.xcconfig */;
+			baseConfigurationReference = F6FF7B52EB32C990A1DF1915 /* Pods-pinpadRNExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
