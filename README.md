@@ -5,7 +5,7 @@ First, you need to clone the repo and install dependencies:
 
 ```sh
 $ yarn add react-native-mpos-native
-$ react-native link react-native-mpos-native
+$ npx react-native link react-native-mpos-native
 ```
 
 ## Android setup
@@ -52,6 +52,7 @@ Then inside of `./android/app/src/main/AndroidManifest.xml` add:
 
 Then inside of `./android/app` create a folder `libs` if not exists. Copy files:
 `mpos-android.native.jar` and `mpos-android.aar` from `/appFolder/node_modules/react-native-mpos-native/android/libs/`
+If you trying to run a SDK version builded by yourself, you should copy `mpos-android.native.jar` and `mpos-android.aar` to `/appFolder/node_modules/react-native-mpos-native/android/libs/`
 
 Rebuild project
 
@@ -222,6 +223,23 @@ To run the example:
 ```sh
 $ yarn
 ```
+Then you need to start `react-native`
+```sh
+$ npx react-native start
+```
+On Linux, if you have the error:
+```
+React Native Error: ENOSPC: System limit for number of file watchers reached
+```
+You should modify the number of system monitoring files:
+```sh
+$ sudo gedit /etc/sysctl.conf
+```
+Add a line at the bottom
+```
+fs.inotify.max_user_watches=524288
+```
+Then save and exit!
 
 ### Android
 ```sh
