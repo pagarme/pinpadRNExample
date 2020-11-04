@@ -158,7 +158,7 @@ function DeviceDetails() {
       },
       receiveError: (error) => {
         //If received one of this contactless error, you should call mpos.payAmount again disabling contactless
-        if( error == ctlsError.ST_CTLSSINVALIDAT || 
+        if (error == ctlsError.ST_CTLSSINVALIDAT || 
             error == ctlsError.ST_CTLSSPROBLEMS || 
             error == ctlsError.ST_CTLSSAPPNAV || 
             error == ctlsError.ST_CTLSSAPPNAUT) {
@@ -170,7 +170,7 @@ function DeviceDetails() {
           mpos.payAmount(amount, method);
         } else if (error == ctlsError.ST_CTLSSCOMMERR) { //If received the error ST_CTLSSCOMMERR twice contactless should be disabled 
           payAmountCounter++;
-          if(payAmountCounter < 2) {
+          if (payAmountCounter < 2) {
             const disabledCtls = false;
             const method = mpos.PaymentMethod.CreditCard;
             mpos.payAmount(amount, method, disabledCtls);
