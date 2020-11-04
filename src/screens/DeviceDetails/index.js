@@ -14,6 +14,8 @@ import {
 import { mpos } from 'react-native-mpos-native';
 import transactionService from '../../services/transaction';
 import DeviceDetailsContainer from '../../containers/DeviceDetails';
+import { ctlsError } from './ctlsError';
+
 
 // DO NOT KEEP YOUR SECRETS IN PLAIN TEXT.
 //
@@ -28,6 +30,7 @@ const credentials = {
   apiKey: '',
   encryptionKey: '',
 };
+let payAmountCounter = 0;
 
 function DeviceDetails() {
   const [amount, setAmount] = useState(0);
@@ -154,11 +157,37 @@ function DeviceDetails() {
         }
       },
       receiveError: (error) => {
-        setTransactionStatus(null);
-        Alert.alert('Error', `An error occurred:\n${JSON.stringify(error)}`);
+        //If received one of this contactless error, you should call mpos.payAmount again disabling contactless
+        if( error == ctlsError.ST_CTLSSINVALIDAT || 
+            error == ctlsError.ST_CTLSSPROBLEMS || 
+            error == ctlsError.ST_CTLSSAPPNAV || 
+            error == ctlsError.ST_CTLSSAPPNAUT) {
+          const disabledCtls = true;
+          const method = mpos.PaymentMethod.CreditCard;
+          mpos.payAmount(amount, method, disabledCtls);
+        } else if (error == ctlsError.ST_CTLSSMULTIPLE) { //If the error is ST_CTLSSMULTIPLE you just need call mpos.payAmount again
+          const method = mpos.PaymentMethod.CreditCard;
+          mpos.payAmount(amount, method);
+        } else if (error == ctlsError.ST_CTLSSCOMMERR) { //If received the error ST_CTLSSCOMMERR twice contactless should be disabled 
+          payAmountCounter++;
+          if(payAmountCounter < 2) {
+            const disabledCtls = false;
+            const method = mpos.PaymentMethod.CreditCard;
+            mpos.payAmount(amount, method, disabledCtls);
+          } else {
+            payAmountCounter = 0;
+            const disabledCtls = true;
+            const method = mpos.PaymentMethod.CreditCard;
+            mpos.payAmount(amount, method, disabledCtls);
+          }
+        } else {
+          setTransactionStatus(null);
+          Alert.alert('Error', `An error occurred:\n${JSON.stringify(error)}`);
+          const errorCode = Platform.OS === 'ios' ? error.code : error;
+          mpos.close(`ERROR: ${errorCode}`);
+        }
 
-        const errorCode = Platform.OS === 'ios' ? error.code : error;
-        mpos.close(`ERROR: ${errorCode}`);
+        
       },
       receiveClose: () => {
         // Dispose resources and invalidate callbacks after finishing a transaction.
