@@ -5558,10 +5558,10 @@ react-native-gesture-handler@^1.6.0:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
-react-native-mpos-native@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-mpos-native/-/react-native-mpos-native-3.2.0.tgz#959fcf0cf952e97d4b615541a765d9e9827cd1b8"
-  integrity sha512-JIMqMRz/KE+CJM3GJ8PemGNothoGAWh8p7/BMJuzbBvetpb5UuuEmIFO+qvr+Lgq/0CZPHQpTkC/qWAXBvmpBw==
+react-native-mpos-native@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-mpos-native/-/react-native-mpos-native-3.3.0.tgz#6ce91f3988f21baa7c57d29259884889dbc2ff82"
+  integrity sha512-7bNvjd+cPiXvvyM/H5DcDcIgVOwHkfoniA36xFH4C/KLDgEFnuXZ9kpKW1xEMHiXJGHAAcaDOBJFj5du3PRQkQ==
   dependencies:
     ramda "0.26.1"
 
