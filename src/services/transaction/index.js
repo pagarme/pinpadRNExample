@@ -13,6 +13,22 @@ async function createTransaction(payload) {
     .then((res) => res.json());
 }
 
+async function refundTransaction(payload, localTransactionId) {
+  const request = {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  };
+
+  // eslint-disable-next-line no-undef
+  return fetch(`https://api.pagar.me/1/transactions/${localTransactionId}/refund`, request)
+    .then((res) => res.json());
+}
+
 export default {
   createTransaction,
+  refundTransaction
 };
