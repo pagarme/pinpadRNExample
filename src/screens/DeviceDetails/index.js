@@ -14,8 +14,7 @@ import {
 import { mpos } from 'react-native-mpos-native';
 import transactionService from '../../services/transaction';
 import DeviceDetailsContainer from '../../containers/DeviceDetails';
-import { ctlsError } from './ctlsError';
-
+import sleep from './helper';
 
 // DO NOT KEEP YOUR SECRETS IN PLAIN TEXT.
 //
@@ -28,15 +27,16 @@ import { ctlsError } from './ctlsError';
 // to store secrets.
 const credentials = {
   apiKey: '',
-  encryptionKey: '',
+  encryptionKey: ''
 };
-let payAmountCounter = 0;
+const abecsErrors = mpos.AbecsErrors
 
 function DeviceDetails() {
   const [amount, setAmount] = useState(0);
   const [amountInput, setAmountInput] = useState('');
   const [transactionStatus, setTransactionStatus] = useState(null);
   const [transactionError, setTransactionError] = useState(null);
+  const [localTransactionId, setLocalTransactionId] = useState(0);
 
   useEffect(() => {
     if (amountInput && amountInput.length > 0) {
@@ -58,6 +58,18 @@ function DeviceDetails() {
 
     return () => mpos.dispose();
   }, []));
+
+  const refundTransaction = async() => {
+    try {
+      const refund = await transactionService.refundTransaction({
+        api_key: credentials.apiKey,
+      }, localTransactionId);
+      Alert.alert('Warning.', 'Payment refunded.');
+      console.log(refund);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const onTransactionSuccess = (transaction, shouldFinishTransaction) => {
     // In case the flag maps to `true`, you must call `finishTransaction` on pinpad.
@@ -140,7 +152,7 @@ function DeviceDetails() {
             card_hash: result.cardHash,
             local_time: new Date().toString(),
           });
-
+          setLocalTransactionId(transaction.local_transaction_id);
           onTransactionSuccess(transaction, result.shouldFinishTransaction);
         } catch (error) {
           setTransactionError(error);
@@ -156,38 +168,83 @@ function DeviceDetails() {
           onTransactionSuccess(null, false);
         }
       },
-      receiveError: (error) => {
+      receiveError: async (error) => {
         //If received one of this contactless error, you should call mpos.payAmount again disabling contactless
-        if (error == ctlsError.ST_CTLSSINVALIDAT || 
-            error == ctlsError.ST_CTLSSPROBLEMS || 
-            error == ctlsError.ST_CTLSSAPPNAV || 
-            error == ctlsError.ST_CTLSSAPPNAUT) {
-          const disabledCtls = true;
-          const method = mpos.PaymentMethod.CreditCard;
-          mpos.payAmount(amount, method, disabledCtls);
-        } else if (error == ctlsError.ST_CTLSSMULTIPLE) { //If the error is ST_CTLSSMULTIPLE you just need call mpos.payAmount again
-          const method = mpos.PaymentMethod.CreditCard;
-          mpos.payAmount(amount, method);
-        } else if (error == ctlsError.ST_CTLSSCOMMERR) { //If received the error ST_CTLSSCOMMERR twice contactless should be disabled 
-          payAmountCounter++;
-          if (payAmountCounter < 2) {
-            const disabledCtls = false;
-            const method = mpos.PaymentMethod.CreditCard;
-            mpos.payAmount(amount, method, disabledCtls);
-          } else {
-            payAmountCounter = 0;
-            const disabledCtls = true;
-            const method = mpos.PaymentMethod.CreditCard;
-            mpos.payAmount(amount, method, disabledCtls);
-          }
-        } else {
-          setTransactionStatus(null);
-          Alert.alert('Error', `An error occurred:\n${JSON.stringify(error)}`);
-          const errorCode = Platform.OS === 'ios' ? error.code : error;
-          mpos.close(`ERROR: ${errorCode}`);
-        }
-
+        // const modelName = await mpos.getModelName()
         
+        switch(error) {
+          case abecsErrors.ST_CTLSCOMMERR:
+          case abecsErrors.ST_CTLSIFCHG:
+            mpos.payAmount(amount, mpos.PaymentMethod.CreditCard, true);
+            break;
+          case abecsErrors.ST_TABVERDIF:
+            mpos.displayText('UPDATE TABLE IS NECESSARY');
+            await sleep(2000);
+            mpos.downloadEmvTablesToDevice(true);
+            break;
+          case abecsErrors.ST_CTLSMULTIPLE:
+            mpos.displayText('PRESENT ONE CARD ONLY');
+            await sleep(2000);
+            mpos.payAmount(amount, mpos.PaymentMethod.CreditCard);
+            break;
+          case abecsErrors.ST_CTLSINVALIDAT:
+            mpos.close('BLOCKED CARD');
+            break;
+          case abecsErrors.ST_CTLSEXTCVM:
+            mpos.payAmount(amount, mpos.PaymentMethod.CreditCard);
+            break;
+          case abecsErrors.ST_CTLSPROBLEMS:
+            mpos.close('CARD NOT SUPPORTED');
+            break;
+          case abecsErrors.ST_CTLSAPPNAV:
+            mpos.close('NO APPLICATION');
+            break;
+          case abecsErrors.ST_CARDINVALIDAT:
+            mpos.close('INVALID CARD');
+            break;
+          case abecsErrors.ST_DUMBCARD:
+          case abecsErrors.ST_ERRCARD:
+          case abecsErrors.ST_CARDAPPNAUT:
+            const modelName = await mpos.getModelName();
+            if (modelName === 'D180') {
+              mpos.displayText('CHIP ERROR. USE MAGSTRIPE');
+              await sleep(2000);
+              mpos.payAmount(amount, mpos.PaymentMethod.CreditCard);
+            } else {
+              mpos.close('CHIP CANNOT BE READ');
+            }
+            break;
+          case -3:
+            mpos.close('TRANSACTION DENIED GOC');
+            break;
+          case -4:
+            await refundTransaction();
+            mpos.close('TRANSACTION DENIED FNC');
+            break;
+          case -5:
+            mpos.displayText('USE CHIP');
+            mpos.payAmount(amount, mpos.PaymentMethod.CreditCard);
+            break;
+          case 1006:
+            mpos.close('Allowable PIN tries exceeded');
+            break;
+          case 1017:
+            mpos.close('INCORRECT PIN');
+            break;
+          case 1023:
+            mpos.payAmount(amount, mpos.PaymentMethod.CreditCard, true);
+            break;
+          case 9111:
+            mpos.close('TRANSACTION TIME OUT');
+            await refundTransaction();
+            break;
+          default:
+            setTransactionStatus(null);
+            Alert.alert('Error', `An error occurred:\n${JSON.stringify(error)}`);
+            const errorCode = Platform.OS === 'ios' ? error.code : error;
+            mpos.close(`ERROR: ${errorCode}`);
+            break;
+        }
       },
       receiveClose: () => {
         // Dispose resources and invalidate callbacks after finishing a transaction.
