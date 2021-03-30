@@ -10,6 +10,8 @@ import {
   ActivityIndicator,
   KeyboardAvoidingView,
 } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+import { mpos } from 'react-native-mpos-native';
 import styles from './styles';
 
 function DeviceDetails({
@@ -17,6 +19,8 @@ function DeviceDetails({
   onSubmitAmount,
   transactionStatus,
   onChangeAmountInputText,
+  setPaymentMethod,
+  paymentMethod,
 }) {
   return (
     <SafeAreaView style={styles.container}>
@@ -41,6 +45,16 @@ function DeviceDetails({
           keyboardType="numeric"
           placeholder="Amount in cents"
         />
+        <Picker
+          style={styles.pickerSelect}
+          selectedValue={paymentMethod}
+          onValueChange={(itemValue, itemIndex) =>
+            setPaymentMethod(itemValue)
+          }
+        >
+          <Picker.Item label="Credit Card" value={mpos.PaymentMethod.CreditCard} />
+          <Picker.Item label="Debit Card" value={mpos.PaymentMethod.DebitCard} />
+        </Picker>
         <TouchableOpacity
           onPress={onSubmitAmount}
           disabled={transactionStatus !== null}
@@ -63,6 +77,8 @@ DeviceDetails.propTypes = {
   onSubmitAmount: PropTypes.func.isRequired,
   transactionStatus: PropTypes.string,
   onChangeAmountInputText: PropTypes.func.isRequired,
+  setPaymentMethod: PropTypes.func.isRequired,
+  paymentMethod: PropTypes.number.isRequired
 };
 
 export default DeviceDetails;

@@ -34,6 +34,7 @@ const abecsErrors = mpos.AbecsErrors
 function DeviceDetails() {
   const [amount, setAmount] = useState(0);
   const [amountInput, setAmountInput] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState(mpos.PaymentMethod.CreditCard);
   const [transactionStatus, setTransactionStatus] = useState(null);
   const [transactionError, setTransactionError] = useState(null);
   const [localTransactionId, setLocalTransactionId] = useState(0);
@@ -136,8 +137,8 @@ function DeviceDetails() {
       receiveTableUpdated: () => {
         setTransactionStatus('Emv tables are up to date. Insert credit card...');
 
-        const method = mpos.PaymentMethod.CreditCard; // Another possibility is `DebitCard`.
-        mpos.payAmount(amount, method);
+        console.log(`Using ${paymentMethod === mpos.PaymentMethod.DebitCard ? 'debit' : 'credit'} card`)
+        mpos.payAmount(amount, paymentMethod);
       },
       // Called once a card hash has been generated. Here's where a transaction
       // must be created at pagar.me's API.
@@ -175,7 +176,7 @@ function DeviceDetails() {
         switch(error) {
           case abecsErrors.ST_CTLSCOMMERR:
           case abecsErrors.ST_CTLSIFCHG:
-            mpos.payAmount(amount, mpos.PaymentMethod.CreditCard, true);
+            mpos.payAmount(amount, paymentMethod, true);
             break;
           case abecsErrors.ST_TABVERDIF:
             mpos.displayText('UPDATE TABLE IS NECESSARY');
@@ -185,13 +186,13 @@ function DeviceDetails() {
           case abecsErrors.ST_CTLSMULTIPLE:
             mpos.displayText('PRESENT ONE CARD ONLY');
             await sleep(2000);
-            mpos.payAmount(amount, mpos.PaymentMethod.CreditCard);
+            mpos.payAmount(amount, paymentMethod);
             break;
           case abecsErrors.ST_CTLSINVALIDAT:
             mpos.close('BLOCKED CARD');
             break;
           case abecsErrors.ST_CTLSEXTCVM:
-            mpos.payAmount(amount, mpos.PaymentMethod.CreditCard);
+            mpos.payAmount(amount, paymentMethod);
             break;
           case abecsErrors.ST_CTLSPROBLEMS:
             mpos.close('CARD NOT SUPPORTED');
@@ -209,7 +210,7 @@ function DeviceDetails() {
             if (modelName === 'D180') {
               mpos.displayText('CHIP ERROR. USE MAGSTRIPE');
               await sleep(2000);
-              mpos.payAmount(amount, mpos.PaymentMethod.CreditCard);
+              mpos.payAmount(amount, paymentMethod);
             } else {
               mpos.close('CHIP CANNOT BE READ');
             }
@@ -223,7 +224,7 @@ function DeviceDetails() {
             break;
           case -5:
             mpos.displayText('USE CHIP');
-            mpos.payAmount(amount, mpos.PaymentMethod.CreditCard);
+            mpos.payAmount(amount, paymentMethod);
             break;
           case 1006:
             mpos.close('Allowable PIN tries exceeded');
@@ -232,7 +233,7 @@ function DeviceDetails() {
             mpos.close('INCORRECT PIN');
             break;
           case 1023:
-            mpos.payAmount(amount, mpos.PaymentMethod.CreditCard, true);
+            mpos.payAmount(amount, paymentMethod, true);
             break;
           case 9111:
             mpos.close('TRANSACTION TIME OUT');
@@ -247,7 +248,7 @@ function DeviceDetails() {
         }
       },
       receiveClose: () => {
-        // Dispose resources and invalidate callbacks after finishing a transaction.
+        mpos.closeConnection();
         mpos.dispose();
       },
       // Those are kind of optional listeners.
@@ -264,6 +265,8 @@ function DeviceDetails() {
       onSubmitAmount={onSubmitAmount}
       transactionStatus={transactionStatus}
       onChangeAmountInputText={setAmountInput}
+      paymentMethod={paymentMethod}
+      setPaymentMethod={setPaymentMethod}
     />
   );
 }
