@@ -17,19 +17,26 @@ export default StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     paddingLeft: 10,
     borderRadius: 8,
-    marginBottom: 40,
+    marginBottom: 20,
     marginHorizontal: 40,
   },
   buttonTitle: {
     color: '#147efb',
     fontSize: 17,
   },
+  pickerSelect: {
+    color: 'gray',
+    alignSelf: 'stretch',
+    fontSize: 17,
+    marginLeft: 130,
+    marginBottom: 10,
+  },
   transactionStatus: {
     flexDirection: 'row',
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
+    marginBottom: 10,
     marginHorizontal: 40,
   },
   transactionStatusText: {

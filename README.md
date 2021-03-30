@@ -223,6 +223,8 @@ mpos.addListeners({
     }
   },
   receiveClose: () => {
+    // Close bluetooth connection
+    mpos.closeConnection();
     // Dispose resources and invalidate callbacks after finishing a transaction.
     mpos.dispose();
   },
