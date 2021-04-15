@@ -188,7 +188,6 @@ dependencies {
     implementation project(':react-native-screens')
     implementation project(':react-native-reanimated')
 
-    implementation "br.com.vivareal:cuid-android:0.1.0"
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation "com.facebook.react:react-native:+"  // From node_modules

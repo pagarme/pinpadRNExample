@@ -15,9 +15,6 @@ You must confirm that `./android/build.gradle` has the following configuration:
 allProjects {
   repositories {
 	  // ...
-	  maven {
-	    url "https://dl.bintray.com/vivareal/maven"
-	  }
 	  flatDir {
 	    dirs "$rootDir/../node_modules/react-native-mpos-native/android/libs"
 	  }
@@ -28,7 +25,6 @@ Then inside of `./android/app/build.gradle` add:
 ```gradle
 dependencies {
   // ...
-  implementation 'br.com.vivareal:cuid-android:0.1.0'
 }
 ```
 
